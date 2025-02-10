@@ -9,7 +9,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cursive', sans-serif;
             text-align: center;
             background: linear-gradient(to bottom, #ff758c, #ff7eb3);
         }
@@ -141,7 +141,8 @@
                 messageBox.innerHTML = "Oh non ! Essaie encore ! 🥹";
             }
             messageBox.style.display = "block";
-            // Ne pas cacher le message immédiatement
+            setTimeout(() => {
+                messageBox.style.display = "none";
             }, 3000);
         }
     </script>
