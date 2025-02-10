@@ -51,7 +51,6 @@
         #no {
             background-color: #f8d7da;
             color: #d63384;
-            position: absolute;
         }
 
         #no:hover {
@@ -76,20 +75,12 @@
     <div id="container">
         <h1>Will you be my Valentine? 💖</h1>
         <button id="yes" onclick="answer('yes')">Oui</button>
-        <button id="no" onclick="moveNoButton()">Non</button>
+        <button id="no" onclick="answer('no')">Non</button>
         <div id="message"></div>
     </div>
 
     <script>
         let hearts = [];
-        let heartEmoji;
-        let noButtonTexts = ["Are you sure?", "But...", "Really?", "Think again!", "Sure about that?", "Hmm...", "Give it another shot!"];
-        let noButton = document.getElementById('no');
-        let firstClick = false;
-
-        function preload() {
-            heartEmoji = "❤️"; 
-        }
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
@@ -126,37 +117,21 @@
                 textSize(this.size);
                 textAlign(CENTER, CENTER);
                 fill(255, 0, 0);
-                text(heartEmoji, this.x, this.y);
+                text("❤️", this.x, this.y);
             }
         }
 
         function answer(val) {
             let messageBox = document.getElementById('message');
             if (val === 'yes') {
-                messageBox.innerHTML = "De toute façon tu n'avais pas le choix ! ❤️";
+                messageBox.innerHTML = "TU N'AVAIS PAS LE CHOIX DE TOUTE FACON HIHIHIHIH 💕💕";
+            } else {
+                messageBox.innerHTML = "Mauvaise réponse, veuillez réessayer ";
             }
             messageBox.style.display = "block";
             setTimeout(() => {
                 messageBox.style.display = "none";
             }, 3000);
-        }
-
-        function moveNoButton() {
-            if (!firstClick) {
-                firstClick = true;
-                return;
-            }
-
-            let yesButton = document.getElementById('yes');
-            let yesRect = yesButton.getBoundingClientRect();
-            let xOffset = Math.random() * 100 - 50; 
-            let yOffset = Math.random() * 50 - 25;
-
-            noButton.style.left = `${yesRect.left + xOffset}px`;
-            noButton.style.top = `${yesRect.top + yOffset}px`;
-            
-            let randomIndex = Math.floor(Math.random() * noButtonTexts.length);
-            noButton.innerText = noButtonTexts[randomIndex];
         }
     </script>
 </body>
