@@ -51,6 +51,7 @@
         #no {
             background-color: #f8d7da;
             color: #d63384;
+            position: absolute;
         }
 
         #no:hover {
@@ -75,18 +76,26 @@
     <div id="container">
         <h1>Will you be my Valentine? 💖</h1>
         <button id="yes" onclick="answer('yes')">Oui</button>
-        <button id="no" onclick="answer('no')">Non</button>
+        <button id="no" onclick="moveNoButton()">Non</button>
         <div id="message"></div>
     </div>
 
     <script>
         let hearts = [];
+        let heartEmoji;
+        let noButtonTexts = ["Are you sure?", "But...", "Really?", "Think again!", "Sure about that?", "Hmm...", "Give it another shot!"];
+        let noButton = document.getElementById('no');
+
+        function preload() {
+            heartEmoji = "❤️"; 
+        }
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
             for (let i = 0; i < 30; i++) {
                 hearts.push(new Heart());
             }
+            positionNoButton();
         }
 
         function draw() {
@@ -117,7 +126,7 @@
                 textSize(this.size);
                 textAlign(CENTER, CENTER);
                 fill(255, 0, 0);
-                text("❤️", this.x, this.y);
+                text(heartEmoji, this.x, this.y);
             }
         }
 
@@ -125,13 +134,24 @@
             let messageBox = document.getElementById('message');
             if (val === 'yes') {
                 messageBox.innerHTML = "De toute façon tu n'avais pas le choix ! ❤️";
-            } else {
-                messageBox.innerHTML = "Mauvaise réponse, veuillez réessayer 😜";
             }
             messageBox.style.display = "block";
             setTimeout(() => {
                 messageBox.style.display = "none";
             }, 3000);
+        }
+
+        function positionNoButton() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function moveNoButton() {
+            let randomIndex = Math.floor(Math.random() * noButtonTexts.length);
+            noButton.innerText = noButtonTexts[randomIndex];
+            positionNoButton();
         }
     </script>
 </body>
