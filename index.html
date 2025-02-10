@@ -23,8 +23,8 @@
 
         #container {
             background: rgba(255, 255, 255, 0.2);
-            padding: 30px;
-            border-radius: 15px;
+            padding: 40px;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             animation: fadeIn 2s ease-in-out;
@@ -35,8 +35,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 500px;
         }
 
         @keyframes fadeIn {
@@ -45,21 +45,21 @@
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 42px;
             color: white;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         button {
-            font-size: 20px;
-            padding: 12px 30px;
-            margin: 8px 4px;
+            font-size: 24px;
+            padding: 15px 40px;
+            margin: 10px 5px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: transform 0.3s, background-color 0.3s;
             font-weight: bold;
-            box-shadow: 0px 6px 20px rgba(255, 105, 180, 0.5);
+            box-shadow: 0px 8px 25px rgba(255, 105, 180, 0.5);
         }
 
         #yes {
@@ -69,7 +69,7 @@
 
         #yes:hover {
             background-color: #e91e63;
-            transform: scale(1.15);
+            transform: scale(1.2);
         }
 
         #no {
@@ -79,19 +79,19 @@
 
         #no:hover {
             background-color: #ef9a9a;
-            transform: scale(1.15);
+            transform: scale(1.2);
         }
 
         #message {
             display: none;
-            font-size: 26px;
+            font-size: 30px;
             color: white;
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
             background: rgba(255, 105, 180, 0.9);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 30px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
             animation: popUp 0.5s ease-in-out;
         }
 
@@ -132,15 +132,15 @@
         class Heart {
             constructor() {
                 this.x = random(width);
-                this.y = random(-height * 5, -50);
-                this.size = random(15, 40);
+                this.y = random(-50, -10);
+                this.size = random(20, 50);
                 this.speed = random(1, 2);
             }
 
             move() {
                 this.y += this.speed;
                 if (this.y > height) {
-                    this.y = random(-height, -50);
+                    this.y = random(-50, -10);
                     this.x = random(width);
                 }
             }
