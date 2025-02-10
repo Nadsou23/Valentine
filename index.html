@@ -18,6 +18,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
         }
 
         #container {
@@ -27,6 +28,9 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             animation: fadeIn 2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         @keyframes fadeIn {
@@ -43,7 +47,7 @@
         button {
             font-size: 24px;
             padding: 15px 40px;
-            margin: 15px;
+            margin: 10px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -94,8 +98,10 @@
 <body>
     <div id="container">
         <h1>Will you be my Valentine? 💖</h1>
-        <button id="yes" onclick="answer('yes')">Oui</button>
-        <button id="no" onclick="answer('no')">Non</button>
+        <div>
+            <button id="yes" onclick="answer('yes')">Oui</button>
+            <button id="no" onclick="answer('no')">Non</button>
+        </div>
         <div id="message"></div>
     </div>
 
