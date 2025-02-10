@@ -117,7 +117,7 @@
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 300; i++) {
                 hearts.push(new Heart());
             }
         }
@@ -135,7 +135,7 @@
                 this.x = random(width);
                 this.y = random(-height * 15, -50);
                 this.size = random(12, 35);
-                this.speed = random(1, 2);
+                this.speed = random(2, 4);
             }
 
             move() {
