@@ -85,6 +85,7 @@
         let heartEmoji;
         let noButtonTexts = ["Are you sure?", "But...", "Really?", "Think again!", "Sure about that?", "Hmm...", "Give it another shot!"];
         let noButton = document.getElementById('no');
+        let firstClick = false;
 
         function preload() {
             heartEmoji = "❤️"; 
@@ -95,7 +96,6 @@
             for (let i = 0; i < 30; i++) {
                 hearts.push(new Heart());
             }
-            positionNoButton();
         }
 
         function draw() {
@@ -141,17 +141,22 @@
             }, 3000);
         }
 
-        function positionNoButton() {
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
-            noButton.style.left = `${x}px`;
-            noButton.style.top = `${y}px`;
-        }
-
         function moveNoButton() {
+            if (!firstClick) {
+                firstClick = true;
+                return;
+            }
+
+            let yesButton = document.getElementById('yes');
+            let yesRect = yesButton.getBoundingClientRect();
+            let xOffset = Math.random() * 100 - 50; 
+            let yOffset = Math.random() * 50 - 25;
+
+            noButton.style.left = `${yesRect.left + xOffset}px`;
+            noButton.style.top = `${yesRect.top + yOffset}px`;
+            
             let randomIndex = Math.floor(Math.random() * noButtonTexts.length);
             noButton.innerText = noButtonTexts[randomIndex];
-            positionNoButton();
         }
     </script>
 </body>
