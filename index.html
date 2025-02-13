@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            font-family: 'Playfair Display', sans-serif;
+            font-family: 'Playfair Display',sans-serif;
             text-align: center;
             background: linear-gradient(to bottom, #ff758c, #ff7eb3);
             width: 100vw;
@@ -40,6 +40,13 @@
             max-width: 350px;
         }
 
+        .gif-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
         h1 {
             font-size: 28px;
             color: white;
@@ -49,10 +56,8 @@
         #valentine-message {
             font-size: 24px;
             color: white;
+            margin-top: 15px;
             font-weight: bold;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-            margin-top: 10px;
-            animation: fadeIn 2s ease-in-out;
         }
 
         button {
@@ -67,30 +72,18 @@
             box-shadow: 0px 6px 20px rgba(255, 105, 180, 0.5);
         }
 
-        #yes {
-            background-color: #ff4081;
-            color: white;
-        }
-
-        #yes:hover {
-            background-color: #e91e63;
-            transform: scale(1.1);
-        }
-
-        #no {
-            background-color: #ffcdd2;
-            color: #b71c1c;
-        }
-
-        #no:hover {
-            background-color: #ef9a9a;
-            transform: scale(1.1);
-        }
-
+        #yes { background-color: #ff4081; color: white; }
+        #yes:hover { background-color: #e91e63; transform: scale(1.1); }
+        
+        #no { background-color: #ffcdd2; color: #b71c1c; }
+        #no:hover { background-color: #ef9a9a; transform: scale(1.1); }
     </style>
 </head>
 <body>
     <div id="container">
+        <div class="gif-container">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHNrcTNlZ3ZyMzN5c2VlYXYwbmN2YzlsamI2ZW1xNGt4ZnJpNmlkYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2aw9gwZlltbdX92b4w/giphy.gif" alt="GIF illustratif">
+        </div>
         <h1>Will you be my Valentine? 💖</h1>
         <div id="valentine-message">❤️ Joyeuse Saint-Valentin ! ❤️</div>
         <div>
@@ -103,10 +96,13 @@
     <script>
         function answer(val) {
             let messageBox = document.getElementById('message');
+            let noGif = document.querySelector('.gif-container img');
             if (val === 'yes') {
                 messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDZoMWExYndpejlxYXc1a2Yxdjg3NjFreXhvNnlxdXJtd2t0NTdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yc2pHdAoxVOrJ2m5Ha/giphy.gif";
             } else {
-                messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
+                messageBox.innerHTML = "Oh non...Essaie encore ! 🥺❤️";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif";
             }
             messageBox.style.display = "block";
         }
