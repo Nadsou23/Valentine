@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -52,6 +52,19 @@
             border-radius: 10px;
         }
 
+        .second-gif-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .second-gif-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -94,24 +107,6 @@
             background-color: #ef9a9a;
             transform: scale(1.1);
         }
-
-        #message {
-            display: none;
-            font-size: 22px;
-            color: white;
-            margin-top: 12px;
-            font-weight: bold;
-            background: rgba(255, 105, 180, 0.9);
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
-            animation: popUp 0.5s ease-in-out;
-        }
-
-        @keyframes popUp {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -125,19 +120,21 @@
             <button id="no" onclick="answer('no')">Non</button>
         </div>
         <div id="message"></div>
+        <div class="second-gif-container" id="no-gif">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif" alt="GIF triste">
+        </div>
     </div>
-
-    <audio id="background-music" src="https://soundcloud.com/drama_cnc/o-coldplay-mp3"></audio>
 
     <script>
         function answer(val) {
             let messageBox = document.getElementById('message');
-            let music = document.getElementById('background-music');
+            let noGif = document.getElementById('no-gif');
             if (val === 'yes') {
                 messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
-                music.play(); // Démarrer la musique
+                noGif.style.display = "none";
             } else {
                 messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
+                noGif.style.display = "block";
             }
             messageBox.style.display = "block";
         }
