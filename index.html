@@ -4,7 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Will You Be My Valentine? 💖</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js">        function launchConfetti() {
+            let duration = 3 * 1000; 
+            let animationEnd = Date.now() + duration;
+            let colors = ["#ff4081", "#ff7eb3", "#ff0000", "#ffd700"];
+
+            function frame() {
+                let timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return;
+
+                let confetti = document.createElement("div");
+                confetti.innerHTML = "🎉";
+                confetti.style.position = "absolute";
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.top = Math.random() * window.innerHeight + "px";
+                confetti.style.fontSize = Math.random() * 40 + 10 + "px";
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = "floatUp 3s ease-out";
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+
+                requestAnimationFrame(frame);
+            }
+            frame();
+        }
+
+        function answer(val) {
+            let messageBox = document.getElementById('message');
+            let noGif = document.querySelector('.gif-container img');
+            let finalMessage = document.getElementById("final-message");
+            
+            if (val === 'yes') {
+                messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDZoMWExYndpejlxYXc1a2Yxdjg3NjFreXhvNnlxdXJtd2t0NTdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yc2pHdAoxVOrJ2m5Ha/giphy.gif";
+                setTimeout(() => {
+                    finalMessage.style.display = "block";
+                }, 2000);
+                launchConfetti();
+            } else {
+                messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif";
+            }
+            messageBox.style.display = "block";
+        }
+            function launchConfetti() {
+            let duration = 3 * 1000; 
+            let animationEnd = Date.now() + duration;
+            let colors = ["#ff4081", "#ff7eb3", "#ff0000", "#ffd700"];
+
+            function frame() {
+                let timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return;
+
+                let confetti = document.createElement("div");
+                confetti.innerHTML = "🎉";
+                confetti.style.position = "absolute";
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.top = Math.random() * window.innerHeight + "px";
+                confetti.style.fontSize = Math.random() * 40 + 10 + "px";
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = "floatUp 3s ease-out";
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+
+                requestAnimationFrame(frame);
+            }
+            frame();
+        }
+
+        function answer(val) {
+            let messageBox = document.getElementById('message');
+            let noGif = document.querySelector('.gif-container img');
+            let finalMessage = document.getElementById("final-message");
+            
+            if (val === 'yes') {
+                messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDZoMWExYndpejlxYXc1a2Yxdjg3NjFreXhvNnlxdXJtd2t0NTdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yc2pHdAoxVOrJ2m5Ha/giphy.gif";
+                setTimeout(() => {
+                    finalMessage.style.display = "block";
+                }, 2000);
+                launchConfetti();
+            } else {
+                messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif";
+            }
+            messageBox.style.display = "block";
+        }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         
@@ -108,6 +194,41 @@
             transform: scale(1.1);
         }
             @keyframes floatUp {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+        @keyframes wowEntry {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes animatedBackground {
+            0% { background: linear-gradient(to bottom, #ff758c, #ff7eb3); }
+            50% { background: linear-gradient(to bottom, #ff7eb3, #ff4081); }
+            100% { background: linear-gradient(to bottom, #ff758c, #ff7eb3); }
+        }
+
+        body {
+            animation: animatedBackground 10s infinite alternate;
+        }
+
+        #container {
+            animation: wowEntry 1.5s ease-out;
+        }
+
+        @keyframes floatUp {
             from {
                 transform: translateY(0);
                 opacity: 1;
