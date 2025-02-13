@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            font-family: 'Playfair Display',sans-serif;;
+            font-family: 'Playfair Display',sans-serif;
             text-align: center;
             background: linear-gradient(to bottom, #ff758c, #ff7eb3);
             width: 100vw;
@@ -38,6 +38,18 @@
             transform: translate(-50%, -50%);
             width: 90%;
             max-width: 350px;
+        }
+
+        .gif-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
         }
 
         @keyframes fadeIn {
@@ -104,6 +116,9 @@
 </head>
 <body>
     <div id="container">
+        <div class="gif-container">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHNrcTNlZ3ZyMzN5c2VlYXYwbmN2YzlsamI2ZW1xNGt4ZnJpNmlkYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2aw9gwZlltbdX92b4w/giphy.gif" alt="GIF illustratif">
+        </div>
         <h1>Will you be my Valentine? 💖</h1>
         <div>
             <button id="yes" onclick="answer('yes')">Oui</button>
