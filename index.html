@@ -24,7 +24,7 @@
 
         #container {
             background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -36,33 +36,34 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 350px;
+            width: 80%;
+            max-width: 300px;
         }
 
         .gif-container img {
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             height: auto;
             border-radius: 10px;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 24px;
             color: white;
             text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
         }
 
         #valentine-message {
-            font-size: 24px;
+            font-size: 20px;
             color: white;
-            margin-top: 15px;
+            margin-top: 10px;
             font-weight: bold;
+            display: none;
         }
 
         button {
-            font-size: 18px;
-            padding: 10px 25px;
+            font-size: 16px;
+            padding: 8px 20px;
             margin: 6px 3px;
             border: none;
             border-radius: 50px;
@@ -97,12 +98,15 @@
         function answer(val) {
             let messageBox = document.getElementById('message');
             let noGif = document.querySelector('.gif-container img');
+            let valentineMessage = document.getElementById('valentine-message');
             if (val === 'yes') {
                 messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
                 noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDZoMWExYndpejlxYXc1a2Yxdjg3NjFreXhvNnlxdXJtd2t0NTdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yc2pHdAoxVOrJ2m5Ha/giphy.gif";
+                valentineMessage.style.display = "block";
             } else {
                 messageBox.innerHTML = "Oh non...Essaie encore ! 🥺❤️";
                 noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif";
+                valentineMessage.style.display = "none";
             }
             messageBox.style.display = "block";
         }
