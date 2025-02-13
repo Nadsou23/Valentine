@@ -127,52 +127,15 @@
         <div id="message"></div>
     </div>
 
+    <audio id="background-music" src="https://music.youtube.com/watch?v=-gA3H3clEqk&si=SSC8QixoddFCKfh7" type="audio/mpeg"></audio>
+
     <script>
-        let hearts = [];
-
-        function setup() {
-            createCanvas(windowWidth, windowHeight);
-            for (let i = 0; i < 300; i++) {
-                hearts.push(new Heart());
-            }
-        }
-
-        function draw() {
-            clear();
-            for (let heart of hearts) {
-                heart.move();
-                heart.display();
-            }
-        }
-
-        class Heart {
-            constructor() {
-                this.x = random(width);
-                this.y = random(-height * 15, -50);
-                this.size = random(12, 35);
-                this.speed = random(2, 4);
-            }
-
-            move() {
-                this.y += this.speed;
-                if (this.y > height) {
-                    this.y = random(-height * 15, -50);
-                    this.x = random(width);
-                }
-            }
-
-            display() {
-                textSize(this.size);
-                textAlign(CENTER, CENTER);
-                fill(255, 0, 0);
-                text("❤️", this.x, this.y);
-            }
-        }
-
         function answer(val) {
             let messageBox = document.getElementById('message');
+            let music = document.getElementById('background-music');
             if (val === 'yes') {
                 messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
+                music.play(); // Démarrer la musique
             } else {
                 messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
             }
