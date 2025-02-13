@@ -107,7 +107,17 @@
             background-color: #ef9a9a;
             transform: scale(1.1);
         }
-    </style>
+            @keyframes floatUp {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+</style>
 </head>
 <body>
     <div id="container">
@@ -132,6 +142,42 @@
             if (val === 'yes') {
                 messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
                 noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDZoMWExYndpejlxYXc1a2Yxdjg3NjFreXhvNnlxdXJtd2t0NTdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yc2pHdAoxVOrJ2m5Ha/giphy.gif";
+            } else {
+                messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif";
+            }
+            messageBox.style.display = "block";
+        }
+    </script>
+    <div id="final-message" style="display: none; font-size: 24px; color: white; margin-top: 20px;">
+        ❤️ Joyeuse Saint-Valentin ! ❤️
+    </div>
+
+    <script>
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.style.position = "absolute";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            heart.style.fontSize = Math.random() * 30 + 10 + "px";
+            heart.style.animation = "floatUp 3s linear";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+        setInterval(createHeart, 500);
+
+        function answer(val) {
+            let messageBox = document.getElementById('message');
+            let noGif = document.querySelector('.gif-container img');
+            let finalMessage = document.getElementById("final-message");
+            
+            if (val === 'yes') {
+                messageBox.innerHTML = "Ouiii 😍 de toute les façons tu n'as pas le choix niahaha🤭💋💋💕💕";
+                noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDZoMWExYndpejlxYXc1a2Yxdjg3NjFreXhvNnlxdXJtd2t0NTdqNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yc2pHdAoxVOrJ2m5Ha/giphy.gif";
+                setTimeout(() => {
+                    finalMessage.style.display = "block";
+                }, 2000);
             } else {
                 messageBox.innerHTML = "Oh non...Essaie encore ! 🥹❤️";
                 noGif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh3Nm1zYTdpMGNuODUyeTl6NGM2M3pudjZxbG94cm12MmxsYnlzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif";
